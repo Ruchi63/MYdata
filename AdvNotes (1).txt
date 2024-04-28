@@ -1,0 +1,140 @@
+/*
+	 *  Property file---->In selenium .properties file is a text file used to store GUI locators/elements
+	 *  &global fields like database configuration details
+	 *  
+	 *  "properties" file mainly store as a pair of strings in key and value format
+	 *  
+	 *  EG---> username=admin
+	 * 
+	 *
+*/
+==============================================================================
+/*
+ * Window handle in selenium helps in handling multiple windows & child windows.Each browser have unique window handle value
+ * which can be identified uniquely.SElenium webriver provides various methods for handling windows
+ * 			1]	getWindowHAndle()--->method is predefined in Webdriver Interface.Used to gt unique id of current window of driver instance[Parent]
+ * 			2]	getWindowHandles()--->method is predefined in WebDriver Interface.Used to  handle all opened window.Returns Set<String>[Child]
+ *			3]	switchTo()--->method used to switch operation within windows
+ *
+ */
+
+====================================================================
+Scrolling :-
+Selenium is unable to handle scrolling directly. It takes the help of the Javascript Executor to perform the scrolling action.
+We can use the Javascript Executor to run the Javascript commands. The method executeScript() is used to run Javascript commands in Selenium. 
+There are some methods of Javascript Executor which can perform scrolling
+i)  scrollIntoView()  It is JavaScriptExecutor method. It will scroll the page until mentioned elements is in full view.
+ii)  scrollBy()   This method scrolls the document by the specified number of pixels.
+
+====================================================================================
+/*
+ * Page Factory--->
+ * Page factory is class provided by selenium webdriver tosupport page object design pattern
+ * In page factory testers use @FindBy annotation.The initElements methd is used to initialize web element
+ * @FindBy--->An annotation used in page fatory to locate & declare web elements using different locator
+ * 
+ * EG---->		@FindBy(id="elementid")
+ * 				WebElement eleid
+ * 
+ * 
+ */
+========================================================================
+1) Allure :-
+i] Download allure dependency
+(https://mvnrepository.com/artifact/io.qameta.allure/allure-testng)
+ii] Add dependency in pom.xml
+        <dependency>
+      <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-testng</artifactId>
+        <version>2.13.0</version>
+      </dependency>
+iii] Execute any script of your project & then refresh the project. ‘allure-results folder will get create in your project. It contains json frormat files.
+Need to execute json file by using cmd.
+iv] Copy path of allure-results folder. Then open command prompt and pass there command 
+      allure serve path of allure-results folder
+  allure serve C:/allure-results(press enter)
+v] Allure report of your last executed script will get open in browser.
+
+• Allure Report :-
+Allure Framework is a flexible lightweight multi-language test report tool that not only shows a very concise representation of what have
+ been tested in a neat web report form, but allows everyone participating in the development process to extract maximum of useful 
+information from everyday execution of tests
+
+JavaScript Object Notation (JSON) is a standard text-based format for representing 
+structured data based on JavaScript object syntax. It is commonly used for transmitting data in web applications
+
+*****************************************************************************************************************
+
+Extent Report is an open-source reporting library used to create visually attractive reports for Selenium tests using JUnit and TestNG.
+ Extent reports produce HTML-based documents that offer several advantages like pie charts, graphs, screenshots addition, and test summary. 
+Additionally, we can easily share the generated report with stakeholders via mails. It presents several different functionalities over the in-built default report. 
+Conclusively, it’s one of the most used reporting libraries for Selenium tests due to all these features.
+
+
+I] Download dependency of extent report from following link ->
+https://mvnrepository.com/artifact/com.aventstack/extentreports/3.0.0
+ii] Add dependency in pom.xml
+iii] Generate Script & then execute
+iv] Refresh the project.... Extent report html file will create in ur proj.
+
+TestNG Lisetners :-
+1) TestNG listeners are the piece of code that listens to the events occurring in the TestNG.
+2) TestNG Listeners are applied as interfaces in the code
+3) TestNG provides multiple types of listeners.
+i. ITestListener
+ii. IReporter
+iii. ISuiteListener
+iv. IConfigurationListener
+v. IAnnotationTransformer
+vi. IExecution etc……………..
+
+ITestListener:--
+1) The ITestListener implements since it is an interface, and the class in which we implement the listener overrides the ITestListener Methods.
+2) ITestListener listens to specific events and executes the code written inside its method. With the help of ITestListener, we can also log the events onto the reports using the Selenium.
+The ITestListener methods are as follows:
+A] onStart: This method invokes when the test class is instantiated and before executing any test method.
+B] onFinish: This method invokes when all the test methods have run, and calling of all of their configuration methods happens.
+C] onTestStart: This method invokes every time a test method is called and executed.
+D] onTestSuccess: This method is invoked every time a test case passes (succeeds).
+E] onTestFailure: This method invokes every time a test case fails.
+F] onTestSkipped: This method invokes every time a test skips.
+G] onTestFailedButWithinSuccessPercentage: This method invokes when the test method fails as a whole but has passed a certain success percentage, which is defined by the user.
+
+4) TestResult is an interface that describes the result of the test.
+=======================================================================================================================================================
+Selenium Grid---->It is a test execution tool.Execution done on Multiple machines
+  					& multiple browsers
+  					One system is not enough
+  					WebDriver will be the core part[Script writing will be done WD]
+  					In grid we need one master[hub]system and one or more slaves[nodes]
+  
+  Master---->	Selenium Standalone server jar of selenium grid
+  				Java 8
+  				Eclipse configured with WD
+  				Browser Driver
+  				should store in one folder[SSS jar, Drivers]
+  
+  Slave----> 	Selenium Standalone server jar of selenium grid
+  				Java 8
+  				Browser Driver
+  				should store in one folder[SSS jar, Drivers]
+  
+  To Start with----->java –jar selenium-server-standalone-3.141.59.jar –role hub
+					(exception --- port 4444 is busy-------
+					solution –> use –port to create dummy port number
+					java –jar selenium-server-standalone-3.141.59.jar –role hub –port 9999)
+ 	To start node---->
+					java -jar selenium-server-standalone-3.141.59.jar -role node -hub
+					 http://192.168.1.204:4444/grid/register/
+  
+  
+  DesiredCapabilities---->It is a class in selenium used to set properties of browsers
+  			to perform cross browser testing of web application.It stores the 
+  			capabilities as key-value these capabilities are used to set browser properties
+  			like browsername, browser version and path pf browser driver in system etc. to
+  			determine the behaviour of browser at run time
+  
+  RemoteWebDriver---> Selenium RemoteWebDriver is to act as an interface to execute test
+  			on remote machine  	
+
+
