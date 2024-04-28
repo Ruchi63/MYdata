@@ -1,0 +1,4 @@
+#key=value
+browser=chrome
+url=https://www.bing.com/
+SearchField=//*[@id="sb_form_q"]

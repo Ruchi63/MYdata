@@ -1,0 +1,8 @@
+chrkey=webdriver.chrome.driver
+cpath=/home/luser/Desktop/Selenium/Driver/chromedriver
+url=https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+uname=username:=name
+unameValue=Admin
+pword=//input[@name='password']:=xpath
+pwordValue=admin123
+login=button[type='submit']:=cssSelector
